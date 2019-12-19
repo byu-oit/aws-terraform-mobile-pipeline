@@ -4,7 +4,7 @@ resource "aws_s3_bucket" "pipeline_bucket" {
 }
 
 resource "aws_iam_role" "codepipeline_role" {
-  name = "${var.app-name}-codepipeline-role"
+  name = "${var.app-name}-${var.env}-codepipeline-role"
   permissions_boundary = "arn:aws:iam::${var.account-id}:policy/iamRolePermissionBoundary"
   assume_role_policy = <<EOF
 {
