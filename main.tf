@@ -1,6 +1,6 @@
 //TODO: maybe move to single repo using github pages
 resource "aws_s3_bucket" "pipeline_bucket" {
-  bucket = "${var.app-name}-${var.env}-pipeline-${var.account-id}"
+  bucket = "${var.app-name}-pipeline-${var.account-id}"
 }
 
 resource "aws_iam_role" "codepipeline_role" {
