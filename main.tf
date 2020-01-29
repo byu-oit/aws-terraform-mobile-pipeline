@@ -103,7 +103,7 @@ resource "aws_codepipeline" "pipeline" {
 }
 
 resource "aws_codebuild_project" "build-project" {
-  name = var.app-name
+  name = "${var.app-name}-pipeline"
   service_role = var.power-builder-arn
   artifacts {
     type = "CODEPIPELINE"
