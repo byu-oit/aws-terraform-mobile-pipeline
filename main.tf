@@ -1,6 +1,13 @@
 //TODO: maybe move to single repo using github pages
 resource "aws_s3_bucket" "pipeline_bucket" {
   bucket = "${var.app-name}-pipeline-${var.account-id}"
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "AES256"
+      }
+    }
+  }
 }
 
 resource "aws_iam_role" "codepipeline_role" {
